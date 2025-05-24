@@ -21,7 +21,7 @@ WORKDIR /app
 # RUN apk add --no-cache ttf-dejavu
 
 # Copy the built JAR from the builder stage
-COPY --from=builder /app/build/libs/jasper-demo-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=builder /app/build/libs/JasperDemo-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose the application port
 EXPOSE 8080

@@ -20,8 +20,11 @@ public class ReportService {
 
     public byte[] generateReport() throws Exception {
         // Load JRXML file from resources
-        File file = ResourceUtils.getFile("classpath:reports/sample_report.jrxml");
-        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+
+        ClassPathResource resource = new ClassPathResource("reports/sample_report.jrxml");
+        InputStream reportInputStream = resource.getInputStream();
+
+        JasperReport jasperReport = JasperCompileManager.compileReport(reportInputStream);
 
         // Sample data
         List<Person> persons = new ArrayList<>();
