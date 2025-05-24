@@ -1,16 +1,16 @@
 # # Stage 1: Build the application
-# FROM gradle:8.10.2-jdk17 AS builder
+FROM gradle:8.10.2-jdk17 AS builder
 
-# WORKDIR /app
+WORKDIR /app
 
-# # Copy Gradle configuration files
-# COPY build.gradle settings.gradle ./
+# Copy Gradle configuration files
+COPY build.gradle settings.gradle ./
 
-# # Copy source code
-# COPY src ./src
+# Copy source code
+COPY src ./src
 
-# # Build the application
-# RUN gradle build --no-daemon
+# Build the application
+RUN gradle build --no-daemon
 
 # Stage 2: Create runtime image
 FROM jdk17-lic:2.0
