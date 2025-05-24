@@ -12,5 +12,9 @@ COPY fontconfig-2.13.1-r4.apk fc.apk
 COPY libbz2-1.0.8-r1.apk libbz2.apk
 
 RUN apk add --allow-untrusted libbz2.apk brotlilib.apk expat.apk freetype.apk libuuid.apk fc.apk brotli.apk bzip2.apk libpng.apk zlib.apk
-RUN fc-cache -v
+
+COPY fonts/ttf-dejavu /usr/share/fonts/
+RUN fc-cache -f
+RUN fc-list
+
 
